@@ -69,7 +69,7 @@ async function ipAdresimiAl(){
 		cardInfoDiv.setAttribute("class","card-info")
 		const h3 = document.createElement("h3")
 		h3.setAttribute("class","ip")
-		h3.textContent=nesne["boylam"]
+		h3.textContent=nesne["sorgu"]
 		const pUlke = document.createElement("p")
 		pUlke.setAttribute("class","ulke")
 		pUlke.textContent = nesne["ülke"]+"("+nesne["ülkeKodu"]+")"
