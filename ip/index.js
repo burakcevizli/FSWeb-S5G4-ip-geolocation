@@ -32,9 +32,7 @@ async function ipAdresimiAl(){
 */
 
 
-let veriler = axios.get("https://apis.ergineer.com/ipgeoapi/94.55.132.38").then((response)=>{
-	return response.data
-})
+
 
 
 
@@ -76,7 +74,7 @@ let veriler = axios.get("https://apis.ergineer.com/ipgeoapi/94.55.132.38").then(
 		pUlke.setAttribute("class","ulke")
 		pUlke.textContent = nesne["ülke"]+"("+nesne["ülkeKodu"]+")"
 		const pEnlem = document.createElement("p")
-		pEnlem.textContent="Enlem: "+ nesne["enlem"]+" Boylam: " + nesne["Boylam"]
+		pEnlem.textContent="Enlem: "+ nesne["enlem"]+" Boylam: " + nesne["boylam"]
 		const pSehir = document.createElement("p")
 		pSehir.textContent = "Sehir: " +nesne["şehir"]
 		const pSaat = document.createElement("p")
@@ -90,6 +88,8 @@ let veriler = axios.get("https://apis.ergineer.com/ipgeoapi/94.55.132.38").then(
 		cardDiv.append(flagImg)
 		cardDiv.append(cardInfoDiv)
 
+		console.log("Card oluşturuldu. 4")
+
 		return cardDiv;
 
 	}))
@@ -101,8 +101,15 @@ let veriler = axios.get("https://apis.ergineer.com/ipgeoapi/94.55.132.38").then(
 */
 
 	
+console.log("Axios Öncesi :1 ")
+axios.get("https://apis.ergineer.com/ipgeoapi/94.55.132.38").then((response)=>{
+	console.log("Axios Döndü : 2")
+	document.querySelector(".cards").append(nesneliFonksiyon(response.data))
+	return response.data
+})
 
-	const cards = document.querySelector(".cards").append(nesneliFonksiyon(veriler))
+console.log("Axios Sonrası : 3")
+
 
 	
 
